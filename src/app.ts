@@ -9,7 +9,7 @@ const app = express(); // crea una instancia de una aplicación Express
 
 /* Middlewares */
 app.use(cors({
-    origin: "http://localhost:3000", // Solo permitir este dominio
+    origin: "*", // Solo permitir este dominio
     methods: ["GET", "POST"] // Solo permitir ciertos métodos HTTP
 }));
 
@@ -19,9 +19,5 @@ app.use(express.json());
 /* Routes */
 app.use('/api/recipes', recipesRoutes);
 app.use('/api/users', userRoutes);
-app.get("/", (req, res) => {
-    res.send("Hola, Char! Esta es tu API funcionando 🚀 en tiempo real de cambios");
-});
-
 
 export default app;
