@@ -8,10 +8,16 @@ manejar rutas y middlewares. */
 const app = express(); // crea una instancia de una aplicación Express
 
 /* Middlewares */
-app.use(cors({
-    origin: process.env.FRONT_URI, // Solo permitir este dominio
-    methods: ["GET", "POST"] // Solo permitir ciertos métodos HTTP
-}));
+const corsOptions = {
+    origin: [
+        "https://burguer-recipes-front.vercel.app",
+        "http://localhost:3001"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 
 // Leer cuerpos de solicitudes en formato JSON
 app.use(express.json());
