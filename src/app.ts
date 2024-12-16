@@ -10,8 +10,11 @@ const app = express(); // crea una instancia de una aplicación Express
 /* Middlewares */
 const corsOptions = {
     origin: [
-        "*"
-    ]
+        "https://burguer-recipes-front.vercel.app",
+        "http://localhost:3001"
+    ],
+    methods: ["GET", "POST"], // Solo permitir ciertos métodos HTTP
+    allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
