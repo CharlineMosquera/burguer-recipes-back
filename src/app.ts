@@ -9,7 +9,7 @@ const app = express(); // crea una instancia de una aplicación Express
 
 /* Middlewares */
 app.use(cors({
-    origin: "https://burguer-recipes-front.vercel.app", // Solo permitir este dominio
+    origin: process.env.FRONT_URI, // Solo permitir este dominio
     methods: ["GET", "POST"] // Solo permitir ciertos métodos HTTP
 }));
 
